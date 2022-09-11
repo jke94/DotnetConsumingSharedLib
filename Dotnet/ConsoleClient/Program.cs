@@ -19,12 +19,17 @@
 
             Result myResult;
 
+            myResult.count = 0;
+            myResult.is_preprocessed = false;
+            myResult.duration = 0.0;
+
+            Console.WriteLine($"[Before] count_accepted: {myResult.count}");
             var result = LibWrapper.ProcessInput(
                 ref mySettings, out myResult);
 
             Console.WriteLine($"ProcessInput: {result}");
 
-            Console.WriteLine("Hello world!");
+            Console.WriteLine($"[After] count_accepted: {myResult.count}");
         }
     }
 }
