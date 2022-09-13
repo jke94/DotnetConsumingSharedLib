@@ -3,6 +3,16 @@
     using System.Runtime.InteropServices;
 
     [StructLayout(LayoutKind.Sequential)]
+    public struct DataArray
+    {
+        [MarshalAs(UnmanagedType.I4)]
+        public int size;
+
+        [MarshalAs(UnmanagedType.ByValArray)]
+        public byte[] data;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public struct Settings
     {
         [MarshalAs(UnmanagedType.LPStr)]
@@ -28,6 +38,8 @@
         
         [MarshalAs(UnmanagedType.LPStr)]
         public string device;
+
+        public DataArray dataArray;
     }
 
     [StructLayout(LayoutKind.Sequential)]
