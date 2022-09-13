@@ -2,6 +2,12 @@
 
 namespace NativeLibrary
 {
+    struct dataArray
+    {
+        int size;
+        char data[];
+    };
+    
     struct settings
     {
         char* input_path;
@@ -12,6 +18,7 @@ namespace NativeLibrary
         int count_accepted;
         double confidence;
         char* device;
+        struct dataArray dataArray;
     };
 
     struct result
