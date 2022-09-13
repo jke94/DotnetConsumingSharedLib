@@ -38,8 +38,6 @@
         
         [MarshalAs(UnmanagedType.LPStr)]
         public string device;
-
-        public DataArray dataArray;
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -47,9 +45,6 @@
     {
         [MarshalAs(UnmanagedType.I4)]
         public int count;
-
-        // [MarshalAs(UnmanagedType.SysInt)]
-        // public IntPtr foos;
 
         [MarshalAs(UnmanagedType.I1)]
         public bool is_preprocessed;
@@ -65,5 +60,10 @@
             CallingConvention = CallingConvention.Cdecl)]
         [return:MarshalAs(UnmanagedType.I1)]
         public static extern bool ProcessInput(ref Settings settings, out Result result);
+
+        [DllImport("libNativeLibrary.so", 
+            EntryPoint = "processing_data", 
+            CallingConvention = CallingConvention.Cdecl)]
+        public static extern bool ProcessingData([In][MarshalAs(UnmanagedType.LPArray)] byte[] data, uint length);
     }
 }

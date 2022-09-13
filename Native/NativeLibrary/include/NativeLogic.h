@@ -1,4 +1,7 @@
 #include <iostream>
+#include <vector>
+#include <stdio.h>
+#include <string.h>
 
 namespace NativeLibrary
 {
@@ -36,6 +39,7 @@ namespace NativeLibrary
     public:
         NativeLogic(/* args */);
         ~NativeLogic();
+        bool processing_data(uint8_t data, uint32_t length);
         bool process_input(const settings& settings, result* result);
     };
 }
