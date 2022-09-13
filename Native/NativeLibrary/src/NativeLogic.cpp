@@ -15,14 +15,16 @@ namespace NativeLibrary
         result->count = settings.count_accepted + 3;
         result->duration = 1994.1994 + 1.0001;
 
-        std::cout << "Data:" << settings.dataArray.data << std::endl;
+        return true;
+    }
+    
+    bool NativeLogic::processing_data(uint8_t data, uint32_t length)
+    {
+        std::cout << "Size (bytes): " << length << std::endl;
+        std::vector<uint8_t>vector(length);
+        memcpy(&vector[0], &data, length * sizeof(uint8_t));
 
-        for (int i=0; i<settings.dataArray.size; i++)
-        {
-            std::cout << "Data [" << i << "]: " <<
-                (char)settings.dataArray.data[i] << std::endl;
-        }
-
+        std::cout << "Message from native code, length: " << length << std::endl;
         return true;
     }
 }

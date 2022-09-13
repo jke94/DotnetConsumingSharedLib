@@ -45,3 +45,8 @@ bool NATIVE_LIBRARY_API process_input(const settings& settings, result* result)
 {
     native_logic.process_input(settings, result);
 }
+
+bool NATIVE_LIBRARY_API processing_data(uint8_t data, uint32_t length)
+{
+    native_logic.processing_data(data, length);
+}

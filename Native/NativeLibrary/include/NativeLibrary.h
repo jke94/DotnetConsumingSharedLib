@@ -16,4 +16,5 @@ extern "C"
     using namespace NativeLibrary;
 
     bool NATIVE_LIBRARY_API process_input(const settings& settings, result* result);
+    bool NATIVE_LIBRARY_API processing_data(uint8_t data, uint32_t length);
 }
